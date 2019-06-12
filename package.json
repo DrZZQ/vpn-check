@@ -1,0 +1,14 @@
+{
+  "name": "zzq-cli",
+  "version": "1.0.0",
+  "description": "A ZZQ's app for some stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "zzq"
+  },
+  "author": "ZZQ",
+  "license": "ISC",
+  "dependencies": {
+    "listr": "^0.14.3"
+  }
+}
