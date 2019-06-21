@@ -6,7 +6,7 @@ let ip = []
 let ipPass = 0
 let s = { //settings
   pingTimeout: 5,
-  pingAmount: 10 // 'all' or amount
+  pingAmount: 1 // 'all' or amount
 }
 
 let serverList = fs.readdirSync('/etc/openvpn/ovpn_tcp/')
@@ -28,22 +28,25 @@ for (let i = 0; i < serverList.length; i++) {
 
 
 console.log('Have ' + ip.length + ' servers')
-// console.log('Working...')
 if (s.pingAmount != 'all' && typeof s.pingAmount != '') {
   ip.splice(s.pingAmount)
   console.log('Now ' + ip.length + ' servers');
 }
 
+console.log('Working...')
 
-for (let i = 0; i < ip.length; i++) {
-  load.text = ip[i];
- (async () => {
-    try {
-      // console.log('Cheking ' + ip[i]);
-      await execa.shell('ping -c 1 -W ' + s.pingTimeout + ' ' + ip[i])
-      console.log(chalk.green('Ping pass ') + ip[i] + ' ' + serverList[i])
-    } catch (e) {
-      // console.log(ip[i] + ' no ping');
-    }
-  })()
-}
+
+let checkServers = new Promise((res,rej) => {
+  for (let i = 0; i < ip.length; i++) {
+
+        execa.shell('ping -c 1 -W ' + s.pingTimeout + ' ' + ip[i])
+        res()
+        console.log(chalk.green('Ping pass ') + ip[i] + ' ' + serverList[i])
+            console.log(ip[i] + chalk.red(' no ping'))
+        }
+})
+
+checkServers
+  .then(
+    console.log('Pass')
+  )

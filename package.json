@@ -1,19 +1,25 @@
 {
   "name": "zzq-cli",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A ZZQ's app for some stuff",
   "main": "index.js",
   "scripts": {
-    "test": "zzq"
+    "test": "./index.js"
+  },
+  "bin": {
+    "zzq-cli": "./index.js"
   },
   "author": "ZZQ",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "execa": "^1.0.0",
     "inquirer": "^6.3.1",
     "log-update": "^3.2.0",
     "ora": "^3.4.0",
-    "telegraph.md": "0.0.1"
-  }
+    "telegraph.md": "0.0.1",
+    "zzq": "^1.0.0"
+  },
+  "devDependencies": {}
 }
