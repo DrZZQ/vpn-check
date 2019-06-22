@@ -1,7 +1,7 @@
 {
-  "name": "zzq-cli",
-  "version": "1.3.0",
-  "description": "A ZZQ's app for some stuff",
+  "name": "vpn-check",
+  "version": "1.4.1",
+  "description": "Cli app for cheking most popular vpn servers",
   "main": "index.js",
   "scripts": {
     "test": "./index.js"
@@ -18,9 +18,14 @@
     "execa": "^1.0.0",
     "inquirer": "^6.3.1",
     "log-update": "^3.2.0",
+    "mongodb": "^3.2.7",
     "ora": "^3.4.0",
     "telegraph.md": "0.0.1",
     "zzq": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "keywords": [
+    "vpn"
+  ],
+  "private": false
 }

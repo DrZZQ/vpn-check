@@ -1,0 +1,59 @@
+Arguments: 
+  /snap/node/2221/bin/node /snap/node/2221/bin/yarn.js publish
+
+PATH: 
+  /home/zzq/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  12.4.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: http://registry.npmjs.org/-/user/org.couchdb.user:mrzzq: ETIMEDOUT
+      at Timeout._onTimeout (/snap/node/2221/lib/cli.js:130250:19)
+      at listOnTimeout (internal/timers.js:531:17)
+      at processTimers (internal/timers.js:475:7)
+
+npm manifest: 
+  {
+    "name": "vpn-check",
+    "version": "1.4.1",
+    "description": "Cli app for cheking most popular vpn servers",
+    "main": "index.js",
+    "scripts": {
+      "test": "./index.js"
+    },
+    "bin": {
+      "zzq-cli": "./index.js"
+    },
+    "author": "ZZQ",
+    "license": "ISC",
+    "dependencies": {
+      "chalk": "^2.4.2",
+      "cli-progress": "^2.1.1",
+      "commander": "^2.20.0",
+      "execa": "^1.0.0",
+      "inquirer": "^6.3.1",
+      "log-update": "^3.2.0",
+      "mongodb": "^3.2.7",
+      "ora": "^3.4.0",
+      "telegraph.md": "0.0.1",
+      "zzq": "^1.0.0"
+    },
+    "devDependencies": {},
+    "keywords": [
+      "vpn"
+    ],
+    "private": false
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

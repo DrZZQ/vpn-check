@@ -5,7 +5,7 @@ const chalk = require('chalk')
 let ip = []
 let ipPass = 0
 let s = { //settings
-  pingTimeout: 1,
+  pingTimeout: 6,
   pingAmount: 'all' // 'all' or amount
 }
 
@@ -35,29 +35,45 @@ if (s.pingAmount != 'all' && typeof s.pingAmount != serverList[1]) {
 
 // Loading
 const _cliProgress = require('cli-progress')
+const cliCursor = require('cli-cursor');
+
 const bar = new _cliProgress.Bar({
   fps: 60,
-  format: 'Cheking servers {bar} {percentage}% | {value}/{total}'
+  format: 'Cheking servers {bar} {percentage}% | {value}/{total} {server}'
 }, _cliProgress.Presets.shades_classic)
 bar.start(ip.length,0)
+cliCursor.hide()
 
 
+let passServers = 0
 for (let i = 0; i < ip.length; i++) {
   (async () => {
     try {
-      // console.log('Cheking ' + ip[i]);
+      // console.log('Cheking ' + ip[i])
       // if (i % 2 == 0) {
-        bar.increment(1)
-      // }
+        bar.increment(1,{
+          server: serverList[i]
+        })
+        if (i == ip.length - 1) {
+          bar.update(ip.length,{
+            server: 'Parsing data...'
+          })
+        }
+        // }
       await execa.shell('ping -c 1 -W ' + s.pingTimeout + ' ' + ip[i])
-      console.log(chalk.green('Ping pass ') + ip[i] + ' ' + serverList[i])
+      // console.log(chalk.green('Ping pass ') + ip[i] + ' ' + serverList[i])
+      passServers++
     } catch (e) {
       // console.log(serverList[i] + chalk.red(' no ping'))
     }
-    if (ip.length == i + 1) {
-      // bar.update(ip.length * 2)
+
+    if (ip.length - 1 == i) {
+      bar.update(ip.length, {
+        server: chalk.green(' Done'),
+      })
       bar.stop()
-      console.log(chalk.green('Done'));
+      console.log('Total working servers ' + chalk.green(passServers))
+      console.log('Total not working servers ' + chalk.red(ip.length))
     }
   })()
 }
