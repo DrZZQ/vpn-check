@@ -1,1 +1,4 @@
 yarn-error.log
+yarn.lock
+.yarnclean
+node_modules/.yarn-integrity
