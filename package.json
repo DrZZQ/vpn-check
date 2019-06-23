@@ -1,6 +1,6 @@
 {
   "name": "vpn-check",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Cli app for cheking most popular vpn servers",
   "main": "index.js",
   "scripts": {
