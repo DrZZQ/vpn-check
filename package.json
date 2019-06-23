@@ -1,27 +1,22 @@
 {
   "name": "vpn-check",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "description": "Cli app for cheking most popular vpn servers",
   "main": "index.js",
   "scripts": {
     "test": "./index.js"
   },
   "bin": {
-    "zzq-cli": "./index.js"
+    "vpn-check": "./index.js"
   },
   "author": "ZZQ",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.2",
     "cli-progress": "^2.1.1",
-    "commander": "^2.20.0",
     "execa": "^1.0.0",
-    "inquirer": "^6.3.1",
     "log-update": "^3.2.0",
-    "mongodb": "^3.2.7",
-    "ora": "^3.4.0",
-    "telegraph.md": "0.0.1",
-    "zzq": "^1.0.0"
+    "ora": "^3.4.0"
   },
   "devDependencies": {},
   "keywords": [
