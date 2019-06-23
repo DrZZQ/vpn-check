@@ -10,18 +10,20 @@ const LOGO = chalk.yellow(` __  __  ____    __  __      ____    __              
  \\ \\ \\ \\ \\ \\ ,__/\\ \\ , \` \\   \\ \\ \\/_/\\ \\  _ \`\\  /'__\`\\ /'___\\ \\ , <
   \\ \\ \\_/ \\ \\ \\/  \\ \\ \\\`\\ \\   \\ \\ \\L\\ \\ \\ \\ \\ \\/\\  __//\\ \\__/\\ \\ \\\\\`\\
    \\ \`\\___/\\ \\_\\   \\ \\_\\ \\_\\   \\ \\____/\\ \\_\\ \\_\\ \\____\\ \\____\\\\ \\_\\ \\_\\
-    \`\\/__/  \\/_/    \\/_/\\/_/    \\/___/  \\/_/\\/_/\\/____/\\/____/ \\/_/\\/_/
-`)
+    \`\\/__/  \\/_/    \\/_/\\/_/    \\/___/  \\/_/\\/_/\\/____/\\/____/ \\/_/\\/_/`)
 const HELP_MESSAGE = LOGO + chalk.yellow('v' + version) + `
 
 ${description}
 
-Usage: vpn-check [command] {args...}
+Usage: vpn-check [command] {options...}
 
 Commands:
 
 nord             Check Nord Vpn servers
 test             Test
+logo             Show logo
+
+Options:
 
 --help           Help documentation
 --version | -v   Installed package version
@@ -33,9 +35,9 @@ function a(arg) { //Check arguments
 
 if (a('-v') ||a('--version') ) {
   console.log(VERSION_MESSAGE)
-} else if (a('all')) {
+} else if (a('nord')) {
   console.log(LOGO)
-  require('./cheker.js')
+  require('./nord')
 } else if (a('test')) {
   require('./test')
 } else if (a('logo')) {
